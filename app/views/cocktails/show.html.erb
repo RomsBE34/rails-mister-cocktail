@@ -1,9 +1,47 @@
-<h1>Cocktails</h1>
+
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <a href="/cocktails" class="navbar-wagon-brand"> <%= image_tag "logo.jpg", alt: "Logo"%>
+  </a>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <a href="/cocktails/new" class="navbar-wagon-item navbar-wagon-link btn-medium">Create a cocktail</a>
+
+  </div>
+
+</div>
 
 <h2>  <%= @cocktail.name %> </h2>
 
 <p> <% @cocktail.doses.each do |dose| %></p>
-<%= dose.description %><%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: "Confirm delete ?" } %>
+<%= dose.ingredient.name %>  <%= dose.description %>  <%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: "Confirm delete ?" } %>
 <% end %>
 
+<form class="container">
+   <h3 class="login-title">Add ingredients</h3>
+    <div class="cocktail-form">
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.association :ingredient %>
+        <%= f.input :description %>
+        <%= f.submit class: "btn-medium" %>
+      <% end %>
+    </div>
+</form>
 
+
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> by Romain
+  </div>
+</div>

@@ -1,8 +1,53 @@
-<h1>My Cocktails</h1>
 
-<ul>
-<% @cocktails.each do |cocktail| %>
-  <li> <%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-<% end %>
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <a href="/cocktails" class="navbar-wagon-brand"> <%= image_tag "logo.jpg", alt: "Logo"%>
+  </a>
 
-</ul>
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <a href="/cocktails/new" class="navbar-wagon-item navbar-wagon-link btn-medium">Create a cocktail</a>
+
+  </div>
+
+</div>
+
+
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://marinaclubvw.com/wp-content/uploads/2016/10/cocktail4-1.jpg);">
+    <div class="container">
+      <h1> My Cocktails </h1>
+    </div>
+  </div>
+
+
+<div class="container">
+  <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.saveur.com/sites/saveur.com/files/styles/1000_1x_/public/copper-king-6_2000x1500.jpg?itok=vMhh96oB&fc=50,50');">
+            <div class="card-category">Popular</div>
+            <div class="card-description">
+              <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> by Romain
+  </div>
+</div>
+
+
